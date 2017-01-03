@@ -1,15 +1,3 @@
-				/* ************************************************************************** */
-				/*                                                                            */
-				/*                                                        :::      ::::::::   */
-				/*   minishell.h                                        :+:      :+:    :+:   */
-				/*                                                    +:+ +:+         +:+     */
-				/*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
-				/*                                                +#+#+#+#+#+   +#+           */
-				/*   Created: 2016/07/10 16:15:33 by mvanwyk           #+#    #+#             */
-				/*   Updated: 2016/08/04 14:23:05 by mvanwyk          ###   ########.fr       */
-				/*                                                                            */
-				/* ************************************************************************** */
-
 #ifndef SH21_H
 # define SH21_H
 
@@ -49,7 +37,6 @@ int					strcnt(char **args);
 int					tenv_count(t_env *tenv);
 t_env				*t_env_reverse(t_env *tenv);
 char				**tenv_to_star(t_env *tenv);
-
 char				*cd_get_back_path(t_env *tenv, char *arg);
 
 #endif
