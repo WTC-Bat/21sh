@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh21.h"
 
 static char	*cd_get_path_from_home(t_env *tenv, char *arg)
 {

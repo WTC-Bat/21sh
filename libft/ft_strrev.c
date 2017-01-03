@@ -12,11 +12,6 @@
 
 #include "libft.h"
 
-/*
-**	Mallocs and returns a new c-string containing the characters of 'str' in
-**	reverse. If memory allocation fails, or 'str' is NULL or empty, NULL is
-**	returned.
-*/
 char	*ft_strrev(char const *str)
 {
 	int		cnt;

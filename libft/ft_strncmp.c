@@ -14,7 +14,7 @@
 
 int		ft_strncmp(char const *s1, char const *s2, size_t n)
 {
-	size_t		cnt;
+	size_t			cnt;
 	unsigned char	uc1;
 	unsigned char	uc2;
 

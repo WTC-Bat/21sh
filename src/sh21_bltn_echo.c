@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh21.h"
 
 static void	print_val(t_env *tenv, char *arg)
 {

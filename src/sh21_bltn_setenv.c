@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh21.h"
 
 static int	setenv_args_valid(t_env *tenv, char **args)
 {
@@ -44,7 +44,7 @@ void		replace_var(t_env *tenv, char *var, char *val)
 {
 	while (tenv != NULL)
 	{
-		if (ft_strcmp(tenv->var, var) == 0)	// ft_strequ?
+		if (ft_strcmp(tenv->var, var) == 0)
 		{
 			ft_strdel(&(tenv)->val);
 			tenv->val = ft_strdup(val);
@@ -74,8 +74,6 @@ static void	add_new_var(t_env **tenv, char *var, char *val)
 	else
 	{
 		new = (t_env *)malloc(sizeof(t_env));
-		//new->var = var;
-		//new->val = val;
 		new->var = ft_strdup(var);
 		new->val = ft_strdup(val);
 		new->next = NULL;

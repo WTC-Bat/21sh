@@ -12,16 +12,14 @@
 
 #include "libft.h"
 
-static int	is_match(char *bigc, char *little, int cnt)	//ft_strnequ || ft_strncmp?
+static int	is_match(char *bigc, char *little, int cnt)
 {
 	int		mcnt;
 	int		len;
 
 	mcnt = cnt;
 	len = ft_strlen(little);
-	while (mcnt <= len)	//<=?
-	// while (mcnt < len && bigc[mcnt] != '\0')
-	// while (mcnt <= len && bigc[mcnt] != '\0')
+	while (mcnt <= len)
 	{
 		if (bigc[mcnt] != little[mcnt])
 			return (0);
