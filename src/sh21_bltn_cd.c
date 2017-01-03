@@ -42,7 +42,7 @@ int			cd_args_valid(char *arg)
 	return (valid);
 }
 
-void		msh_cd(char **args, t_env *tenv)
+void		sh21_cd(char **args, t_env *tenv)
 {
 	if (cd_is_basic(args[1]) == 1)
 	{

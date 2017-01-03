@@ -83,7 +83,7 @@ static void	add_new_var(t_env **tenv, char *var, char *val)
 	}
 }
 
-void		msh_setenv(t_env **tenv, char **args)
+void		sh21_setenv(t_env **tenv, char **args)
 {
 	if (args[1] == NULL)
 		ft_putendl("Missing variable name");

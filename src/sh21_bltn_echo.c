@@ -32,7 +32,7 @@ static void	print_val(t_env *tenv, char *arg)
 	varname = NULL;
 }
 
-void		msh_echo(t_env *tenv, char **eargv)
+void		sh21_echo(t_env *tenv, char **eargv)
 {
 	int		cnt;
 

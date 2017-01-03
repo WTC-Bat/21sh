@@ -59,7 +59,7 @@ t_env	*remove_var(t_env *tenv, char *varname)
 	return (tenv);
 }
 
-void	msh_unsetenv(t_env **tenv, char **args)
+void	sh21_unsetenv(t_env **tenv, char **args)
 {
 	if (unsetenv_args_valid(*tenv, args) == 1)
 		*tenv = remove_var(*tenv, args[1]);

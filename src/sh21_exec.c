@@ -96,7 +96,7 @@ char		**tenv_to_star(t_env *tenv)
 	return (star);
 }
 
-int			msh_exec(char **args, t_env *tenv)
+int			sh21_exec(char **args, t_env *tenv)
 {
 	char	*path;
 	char	**env;

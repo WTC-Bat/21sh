@@ -17,13 +17,13 @@ static int	handle_input(char **args, t_env *tenv)
 	if ((ft_strcmp(args[0], "env")) == 0)
 		print_env(tenv);
 	else if ((ft_strcmp(args[0], "echo")) == 0)
-		msh_echo(tenv, args);
+		sh21_echo(tenv, args);
 	else if ((ft_strcmp(args[0], "setenv")) == 0)
-		msh_setenv(&tenv, args);
+		sh21_setenv(&tenv, args);
 	else if ((ft_strcmp(args[0], "unsetenv")) == 0)
-		msh_unsetenv(&tenv, args);
+		sh21_unsetenv(&tenv, args);
 	else if (ft_strcmp(args[0], "cd") == 0)
-		msh_cd(args, tenv);
+		sh21_cd(args, tenv);
 	else if ((ft_strcmp(args[0], "exit")) == 0)
 		return (1);
 	else
