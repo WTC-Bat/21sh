@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   sh21_sort_quote.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh21.h"
 
 static char	*get_sorted_segment(char *input, int wstart, int wend)
 {
@@ -49,6 +49,14 @@ static char	*get_sorted_work(char *input, int *wstart, int *wend)
 
 static void	set_sorted(char **sorted, int *qcnt, char *tmp)
 {
+	//
+	// if (needs_cleaning(tmp) == 1)
+	// {
+	// 	sorted[*qcnt] = clean_sorted(tmp);
+	// }
+	// else
+	// {
+	//
 	sorted[*qcnt] = ft_strdup(tmp);
 	*qcnt += 1;
 	ft_strdel(&tmp);
