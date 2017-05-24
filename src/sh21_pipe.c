@@ -27,13 +27,9 @@ int		is_piped(char *input)
 	while (input[cnt] != '\0')
 	{
 		if (input[cnt] == '|')
-		{
 			if (char_is_in_quote(input[cnt], cnt, input) == 0)
-			{
 				return (1);
 				//check if pipe (|) is surrounded by spaces?
-			}
-		}
 		cnt++;
 	}
 	return (0);

@@ -8,3 +8,10 @@
 0	-	Implement termcaps line editing
 
 DONE	-	Implement command splitting (';'). [Done in minishell]
+
+
+/////////////Changes//////////////
+
+-	Added "sh21_pipe.c".				[NYI]
+
+-	Added 'sh21.h -> s_feat' struct		[NYI]

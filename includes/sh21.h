@@ -28,12 +28,31 @@ typedef struct		s_env
 	struct s_env	*next;
 }					t_env;
 
-//
 typedef struct		s_quot
 {
 	char			*input;
 	int				idx;
 }					t_quot;
+
+/*
+**	Still unsure about s_feat and/or s_redir
+*/
+
+//??
+typedef struct		s_feat
+{
+	char			*command;
+	char			feat_char;
+	int				feat_idx;
+}					t_feat;
+
+typedef struct		s_redir
+{
+	char			*lhs;
+	char			*rhs;
+	char			redir_type;
+	int				redir_idx;
+}
 //
 
 int				cd_args_valid(char *arg);
