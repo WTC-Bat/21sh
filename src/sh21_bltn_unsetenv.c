@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21_bltn_unsetenv.c                               :+:      :+:    :+:   */
+/*   msh_bltn_unsetenv.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:16:48 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:16:49 by mvanwyk          ###   ########.fr       */
+/*   Created: 2016/07/10 15:57:02 by mvanwyk           #+#    #+#             */
+/*   Updated: 2016/07/10 15:57:03 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
 
 int		unsetenv_args_valid(t_env *tenv, char **args)
 {
@@ -47,7 +47,7 @@ t_env	*remove_var(t_env *tenv, char *varname)
 
 	if (tenv == NULL)
 		return (NULL);
-	if ((ft_strequ(tenv->var, varname)) == 1)
+	if (ft_strcmp(tenv->var, varname) == 0)
 	{
 		tmp = tenv->next;
 		ft_strdel(&(tenv)->var);
@@ -59,7 +59,7 @@ t_env	*remove_var(t_env *tenv, char *varname)
 	return (tenv);
 }
 
-void	sh21_unsetenv(t_env **tenv, char **args)
+void	msh_unsetenv(t_env **tenv, char **args)
 {
 	if (unsetenv_args_valid(*tenv, args) == 1)
 		*tenv = remove_var(*tenv, args[1]);

@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21_funcs.c                                       :+:      :+:    :+:   */
+/*   msh_funcs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:17:23 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:17:25 by mvanwyk          ###   ########.fr       */
+/*   Created: 2016/07/10 16:09:31 by mvanwyk           #+#    #+#             */
+/*   Updated: 2016/08/02 14:02:11 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
+
+int		only_colon(char *input)
+{
+	int		cnt;
+
+	cnt = 0;
+	while (input[cnt] != '\0')
+	{
+		if (ft_iswhitespace(input[cnt]) == 0 && input[cnt] != ';')
+			return (0);
+		cnt++;
+	}
+	return (1);
+}
 
 int		strcnt(char **args)
 {
@@ -31,6 +45,13 @@ char	*read_line(const int fd)
 	ft_memset(rline, '\0', 1024);
 	read(fd, rline, 1024);
 	line = ft_strtrim(rline);
+	if (line[0] == ';')
+	{
+		ft_putendl_fd("Unexpected character: ';'", 2);
+		ft_strdel(&rline);
+		ft_strdel(&line);
+		return (NULL);
+	}
 	ft_strdel(&rline);
 	return (line);
 }

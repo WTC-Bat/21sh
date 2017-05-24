@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21_bltn_setenv.c                                 :+:      :+:    :+:   */
+/*   msh_bltn_setenv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:16:40 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:16:42 by mvanwyk          ###   ########.fr       */
+/*   Created: 2016/07/10 16:13:49 by mvanwyk           #+#    #+#             */
+/*   Updated: 2016/08/04 14:34:31 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
 
 static int	setenv_args_valid(t_env *tenv, char **args)
 {
@@ -83,7 +83,7 @@ static void	add_new_var(t_env **tenv, char *var, char *val)
 	}
 }
 
-void		sh21_setenv(t_env **tenv, char **args)
+void		msh_setenv(t_env **tenv, char **args)
 {
 	if (args[1] == NULL)
 		ft_putendl("Missing variable name");

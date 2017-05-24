@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21_exec.c                                        :+:      :+:    :+:   */
+/*   msh_exec.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:17:12 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:17:14 by mvanwyk          ###   ########.fr       */
+/*   Created: 2016/07/08 14:15:33 by mvanwyk           #+#    #+#             */
+/*   Updated: 2016/07/08 14:32:50 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
 
 static char	*get_fpath(char *path, char *pname)
 {
@@ -96,7 +96,7 @@ char		**tenv_to_star(t_env *tenv)
 	return (star);
 }
 
-int			sh21_exec(char **args, t_env *tenv)
+int			msh_exec(char **args, t_env *tenv)
 {
 	char	*path;
 	char	**env;

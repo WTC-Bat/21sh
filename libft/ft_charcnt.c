@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_charcnt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/15 15:03:48 by mvanwyk           #+#    #+#             */
-/*   Updated: 2016/05/15 15:03:53 by mvanwyk          ###   ########.fr       */
+/*   Created: 2017/05/22 11:17:25 by mvanwyk           #+#    #+#             */
+/*   Updated: 2017/05/22 11:17:26 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+int		ft_charcnt(char const *str, char c)
 {
-	size_t	idx;
-	size_t	len1;
-	size_t	len2;
-	size_t	cnt;
+	int		idx;
+	int		cnt;
 
-	if (!s1 || !s2)
-		return (0);
-	idx = 0;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if (len1 > len2)
-		cnt = len1;
-	else
-		cnt = len2;
-	while (idx < cnt)
+	cnt = 0;
+	if (str != NULL && str[0] != '\0')
 	{
-		if (s1[idx] != s2[idx] || s1[idx] == '\0' || s2[idx] == '\0')
-			return (0);
-		idx++;
+		idx = 0;
+		while (str[idx] != '\0')
+		{
+			if (str[idx] == c)
+				cnt++;
+			idx++;
+		}
 	}
-	return (1);
+	return (cnt);
 }

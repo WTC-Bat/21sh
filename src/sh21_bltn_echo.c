@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21_bltn_echo.c                                   :+:      :+:    :+:   */
+/*   msh_bltn_echo.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:16:20 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:16:22 by mvanwyk          ###   ########.fr       */
+/*   Created: 2016/07/10 15:55:25 by mvanwyk           #+#    #+#             */
+/*   Updated: 2016/08/02 14:03:05 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
 
 static void	print_val(t_env *tenv, char *arg)
 {
@@ -32,7 +32,7 @@ static void	print_val(t_env *tenv, char *arg)
 	varname = NULL;
 }
 
-void		sh21_echo(t_env *tenv, char **eargv)
+void		msh_echo(t_env *tenv, char **eargv)
 {
 	int		cnt;
 

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21.c                                             :+:      :+:    :+:   */
+/*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:15:57 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:15:59 by mvanwyk          ###   ########.fr       */
+/*   Created: 2017/05/22 10:31:55 by mvanwyk           #+#    #+#             */
+/*   Updated: 2017/05/22 10:34:22 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
 
-static int	handle_input(char **args, t_env *tenv)
+static int	handle_multi_command(char *input, t_env *tenv)
 {
-	if ((ft_strcmp(args[0], "env")) == 0)
-		print_env(tenv);
-	else if ((ft_strcmp(args[0], "echo")) == 0)
-		sh21_echo(tenv, args);
-	else if ((ft_strcmp(args[0], "setenv")) == 0)
-		sh21_setenv(&tenv, args);
-	else if ((ft_strcmp(args[0], "unsetenv")) == 0)
-		sh21_unsetenv(&tenv, args);
-	else if (ft_strcmp(args[0], "cd") == 0)
-		sh21_cd(args, tenv);
-	else if ((ft_strcmp(args[0], "exit")) == 0)
-		return (1);
-	else
+	t_list	*cmds;
+	t_list	*root;
+	char	**args;
+	int		done;
+
+	cmds = msh_cmd_split(input);
+	done = 0;
+	root = cmds;
+	while (cmds != NULL)
 	{
-		if (sh21_exec(args, tenv) == -1)
-		{
-			ft_putstr(args[0]);
-			ft_putendl(": Unknown command");
-		}
+		args = msh_sort_quote((char *)cmds->content);
+		done = msh_handle_input(args, tenv);
+		ft_starfree(args);
+		cmds = cmds->next;
+		if (done == 1)
+			return (1);
 	}
-	return (0);
+	cmds_free(root);
+	return (done);
 }
 
 static void	put_prompt(t_env *tenv)
@@ -44,6 +42,8 @@ static void	put_prompt(t_env *tenv)
 	char	*tmp;
 
 	user = get_env_val(tenv, "USER");
+	if (user == NULL)
+		user = ft_strdup("minishell");
 	tmp = ft_strdup(COL_HGRN_BLD);
 	prompt = ft_strjoin(tmp, user);
 	ft_strdel(&tmp);
@@ -91,14 +91,22 @@ static int	loop(t_env *tenv)
 	done = 0;
 	put_prompt(tenv);
 	input = read_line(0);
-	if (input[0] != '\0' && input[0] != ' ' && input[0] != '\t')
+	if (input == NULL)
+		return (0);
+	if (check_input(input) == 1)
 	{
-		args = ft_strsplit(input, ' ');
-		done = handle_input(args, tenv);
-		ft_starfree(args);
-		ft_strclr(input);
-		free(input);
-		input = NULL;
+		if (has_cmd_splitter(input) == 1)
+		{
+			if (only_colon(input) == 0)
+				done = handle_multi_command(input, tenv);
+		}
+		else
+		{
+			args = msh_sort_quote(input);
+			done = msh_handle_input(args, tenv);
+			ft_starfree(args);
+		}
+		ft_strdel(&input);
 	}
 	return (done);
 }

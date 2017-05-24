@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sh21_bltn_cd.c                                     :+:      :+:    :+:   */
+/*   msh_bltn_cd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvanwyk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 14:16:08 by mvanwyk           #+#    #+#             */
-/*   Updated: 2017/01/03 14:16:09 by mvanwyk          ###   ########.fr       */
+/*   Created: 2016/07/10 16:12:15 by mvanwyk           #+#    #+#             */
+/*   Updated: 2016/08/02 14:20:06 by mvanwyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh21.h"
+#include "minishell.h"
 
 static void	cd_error(void)
 {
@@ -42,7 +42,7 @@ int			cd_args_valid(char *arg)
 	return (valid);
 }
 
-void		sh21_cd(char **args, t_env *tenv)
+void		msh_cd(char **args, t_env *tenv)
 {
 	if (cd_is_basic(args[1]) == 1)
 	{
