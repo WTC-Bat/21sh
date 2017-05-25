@@ -70,7 +70,8 @@ void			msh_cd(char **args, t_env *tenv);
 t_list			*msh_cmd_split(char *input);
 void			msh_echo(t_env *tenv, char **eargv);
 int				msh_exec(char **args, t_env *tenv);
-int				msh_handle_input(char **args, t_env *tenv);
+// int				msh_handle_input(char **args, t_env *tenv);
+int				msh_handle_input(char *input, t_env *tenv);
 void			msh_setenv(t_env **tenv, char **args);
 void			msh_unsetenv(t_env **tenv, char **args);
 int				only_colon(char *input);
@@ -82,24 +83,21 @@ int				strcnt(char **args);
 int				tenv_count(t_env *tenv);
 t_env			*t_env_reverse(t_env *tenv);
 char			**tenv_to_star(t_env *tenv);
-
 char			**msh_sort_quote(char *input);
 int				has_cmd_splitter(char *input);
 char			**split_indices(char *input);
 int				get_split_count(char *input);
-
 int				check_input(char *input);
-
 void			wdcnt_setvars(int *wcnt, char *curquot, int *idx);
 void			reset_start_end(int *wstart, int *wend);
 char			check_quote(char in_idx, char curquot);
 int				wdcnt(char *input);
 char			*quote_trim(char *str, char quote);
-
 int				char_is_in_quote(char c, int cidx, char *input);
-
 t_quot			*tquot_init(char *input);
 void			tquot_free(t_quot *tquot);
 void			set_start_end(t_quot *tquot, int *start, int *end, char quot);
+
+// int				has_redirection(char *input);
 
 #endif

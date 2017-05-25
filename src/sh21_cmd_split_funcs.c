@@ -97,7 +97,7 @@ int			char_is_in_quote(char c, int cidx, char *input)
 	curquot = '\0';
 	while (input[idx] != '\0')
 	{
-		if (input[idx] == '\'' && input[idx] == '\"')
+		if (input[idx] == '\'' || input[idx] == '\"')
 		{
 			if (curquot == '\0')
 				curquot = input[idx];

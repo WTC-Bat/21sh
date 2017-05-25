@@ -12,29 +12,6 @@
 
 #include "sh21.h"
 
-static int	handle_multi_command(char *input, t_env *tenv)
-{
-	t_list	*cmds;
-	t_list	*root;
-	char	**args;
-	int		done;
-
-	cmds = msh_cmd_split(input);
-	done = 0;
-	root = cmds;
-	while (cmds != NULL)
-	{
-		args = msh_sort_quote((char *)cmds->content);
-		done = msh_handle_input(args, tenv);
-		ft_starfree(args);
-		cmds = cmds->next;
-		if (done == 1)
-			return (1);
-	}
-	cmds_free(root);
-	return (done);
-}
-
 static void	put_prompt(t_env *tenv)
 {
 	char	*prompt;
@@ -85,7 +62,6 @@ static int	has_arg(char **argv, char c)
 static int	loop(t_env *tenv)
 {
 	char	*input;
-	char	**args;
 	int		done;
 
 	done = 0;
@@ -95,17 +71,7 @@ static int	loop(t_env *tenv)
 		return (0);
 	if (check_input(input) == 1)
 	{
-		if (has_cmd_splitter(input) == 1)
-		{
-			if (only_colon(input) == 0)
-				done = handle_multi_command(input, tenv);
-		}
-		else
-		{
-			args = msh_sort_quote(input);
-			done = msh_handle_input(args, tenv);
-			ft_starfree(args);
-		}
+		done = msh_handle_input(input, tenv);
 		ft_strdel(&input);
 	}
 	return (done);
