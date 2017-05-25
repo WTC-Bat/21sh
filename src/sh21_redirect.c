@@ -41,17 +41,54 @@
 // 	}
 // }
 
-int		has_redirection(char *input)
+/*
+**	redir_code:
+**	l	-	<
+**	r	-	>
+**	L	-	<<
+**	R	-	>>
+**
+**	Both 'lhs' and 'rhs' need to be trimmed prior to being passed to
+**	'sh21_redirect()'
+*/
+// void	sh21_redirect(char *redir_str)	//this version would need to do the
+										//split it's self
+void	sh21_redirect(char *lhs, char *rhs, char redir_code)
 {
-	int		cnt;
 
-	cnt = 0;
-	while (input[cnt] != '\0')
-	{
-		if (input[cnt] == '<' || input[cnt] == '>')
-			if (char_is_in_quote(input[cnt], cnt, input) == 0)
-				return (1);
-				// Check if redirection surrounded by spaces?
-	}
-	return (0);
 }
+
+// int		has_redirection(char **args)
+// {
+// 	int		idx;
+// 	int		cidx;
+
+// 	idx = 0;
+// 	cidx = 0;
+// 	while (args[idx] != NULL)
+// 	{
+// 		while (args[idx][cidx] != '\0')
+// 		{
+
+// 		}
+// 		idx++;
+// 	}
+// }
+
+/*
+**	This version is for taking a single char *.
+*/
+// int		has_redirection(char *input)
+// {
+// 	int		cnt;
+
+// 	cnt = 0;
+// 	while (input[cnt] != '\0')
+// 	{
+// 		if (input[cnt] == '<' || input[cnt] == '>')
+// 			if (char_is_in_quote(input[cnt], cnt, input) == 0)
+// 				return (1);
+// 				// Check if redirection surrounded by spaces?
+// 	}
+// 	return (0);
+// }

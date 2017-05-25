@@ -52,7 +52,7 @@ typedef struct		s_redir
 	char			*rhs;
 	char			redir_type;
 	int				redir_idx;
-}
+}					t_redir;
 //
 
 int				cd_args_valid(char *arg);

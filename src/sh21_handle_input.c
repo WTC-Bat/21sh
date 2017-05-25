@@ -49,6 +49,17 @@ int			check_input(char *input)
 
 int			msh_handle_input(char **args, t_env *tenv)
 {
+	/*
+	if (has_redirection())
+	*/
+	//
+	// int i = 0;
+	// while (args[i] != NULL)
+	// {
+	// 	ft_putendl(args[i]);
+	// 	i++;
+	// }
+	//
 	if ((ft_strequ(args[0], "env")) == 1)
 		print_env(tenv);
 	else if ((ft_strequ(args[0], "echo")) == 1)
