@@ -1,5 +1,9 @@
 #include "sh21.h"
 
+//
+#include <fcntl.h>
+//
+
 /*
 **	Redirection Operators:
 **	======================
@@ -12,11 +16,45 @@
 **	'sh21_redirect()'
 */
 // void	sh21_redirection(char *redir_str)	//this version would need to do the
-										//split it's self
-static int	redirect(char *lhs, char *rhs, char redir_code)
+
+void redtest()
 {
-	
+	// We just need to get output, the ft_putendl_fd should be able
+	// to write to the file.
+
+	// int		fd;
+	// // pid_t	pid;
+
+	// fd = open("tst.txt", 'w');	//open(rhs, 'w');
+	// ft_putendl_fd("Test'n'Cheese", fd);
+	// close(fd);
+
+	// Don't know about below
+
+	// char	*args[2];
+	// // int		fd;
+	// pid_t	pid;
+
+	// args[0] = "ls";
+	// args[1] = NULL;
+	// close(1);
+	// open("tst.txt", 'w');
+	// pid = fork();
+	// if (pid == 0)
+	// {
+	// 	execve("/bin/ls", args, 0);
+	// 	exit(0);
+	// }
+	// else
+	// {
+	// 	waitpid(pid, 0 ,0);
+	// }
 }
+									//split it's self
+// static int	redirect(char *lhs, char *rhs, char redir_code)
+// {
+	
+// }
 
 // static int	get_redir_indices(char *input)
 // {
@@ -41,10 +79,10 @@ static int	redirect(char *lhs, char *rhs, char redir_code)
 // 	}
 // }
 
-char		*sh21_redirection(char *input, t_env *tenv)
-{
+// char		*sh21_redirection(char *input, t_env *tenv)
+// {
 	
-}
+// }
 
 // int		has_redirection(char **args)
 // {

@@ -100,4 +100,8 @@ void			set_start_end(t_quot *tquot, int *start, int *end, char quot);
 
 // int				has_redirection(char *input);
 
+//
+void redtest();
+//
+
 #endif

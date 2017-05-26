@@ -47,6 +47,10 @@ static int	run_input(char **args, t_env *tenv)
 		msh_unsetenv(&tenv, args);
 	else if (ft_strequ(args[0], "cd") == 1)
 		msh_cd(args, tenv);
+	//
+	else if ((ft_strequ(args[0], "redtest")) == 1)
+		redtest();
+	//
 	else if ((ft_strequ(args[0], "exit")) == 1)
 		return (1);
 	else
