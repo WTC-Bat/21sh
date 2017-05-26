@@ -77,14 +77,8 @@ char		**tenv_to_star(t_env *tenv)
 	char	**star;
 	char	*tmp;
 	int		cnt;
-	// ubuntu
-	// size_t	varlen;
-	// size_t	vallen;
 
 	cnt = 0;
-	// ubuntu
-	// varlen = ft_strlen(tenv->var);
-	// vallen = ft_strlen(tenv->val);
 	star = (char **)malloc(sizeof(*star) * (tenv_count(tenv) + 1));
 	while (tenv != NULL)
 	{

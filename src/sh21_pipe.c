@@ -86,5 +86,15 @@ char	**pipe_commands(char *input, int *pipe_indices)
 
 void	sh21_pipe(char *input)
 {
+	//Check this out first, was mistakingly placed in redirection	
+	// int		inout[2];
 
+	// if (pipe(inout) == 0)
+	// {
+		
+	// }
+	// else
+	// {
+	// 	ft_putendl_fd("Error creating pipe [sh21_redirect()]", 2);
+	// }	
 }

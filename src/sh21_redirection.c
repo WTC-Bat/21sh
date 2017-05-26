@@ -15,16 +15,7 @@
 										//split it's self
 static int	redirect(char *lhs, char *rhs, char redir_code)
 {
-	int		inout[2];
-
-	if (pipe(inout) == 0)
-	{
-		
-	}
-	else
-	{
-		ft_putendl_fd("Error creating pipe [sh21_redirect()]", 2);
-	}
+	
 }
 
 // static int	get_redir_indices(char *input)
