@@ -19,6 +19,17 @@
 
 void redtest()
 {
+	int		fd;
+	char	*in;
+
+	// fd = open("/bin/ls", 'r');
+	in = read_line(fd);
+	ft_putendl(in);
+	close(fd);
+	fd = open("tmp.txt", 'w');
+	ft_putstr_fd(in, fd);
+	ft_putendl("REDTESTed");
+
 	// We just need to get output, the ft_putendl_fd should be able
 	// to write to the file.
 
