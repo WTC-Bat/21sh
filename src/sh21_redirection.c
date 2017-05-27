@@ -19,16 +19,49 @@
 
 void redtest()
 {
-	int		fd;
-	char	*in;
+	// Similar to the first.
 
-	// fd = open("/bin/ls", 'r');
-	in = read_line(fd);
-	ft_putendl(in);
-	close(fd);
-	fd = open("tmp.txt", 'w');
-	ft_putstr_fd(in, fd);
-	ft_putendl("REDTESTed");
+	// char	*args[2];
+	// int		inout[2];
+	// pid_t	pid;
+
+	// if (pipe(inout) == -1)
+	// {
+	// 	ft_putendl_fd("pipe() error", 2);
+	// 	exit(0);
+	// }
+	// args[0] = "ls";
+	// args[1] = NULL;
+	// pid = fork();
+	// if (pid == 0)
+	// {
+	// 	dup2(inout[1], 1);
+	// 	close(inout[0]);
+	// 	close(inout[1]);
+	// 	execve("/bin/ls", args, 0);
+	// 	exit(0);
+
+	// 	// execve("/bin/ls", args, 0);
+	// 	// exit(0);
+	// }
+	// else
+	// {
+	// 	waitpid(pid, 0 ,0);
+	// }
+
+	// This is the closest. I just need to get the output of /bin/ls, not the
+	// file its self.
+
+	// int		fd;
+	// char	*in;
+
+	// fd = open("/bin/ls", O_RDONLY);
+	// in = read_line(fd);
+	// ft_putendl(in);
+	// close(fd);
+	// fd = open("tmp.txt", O_WRONLY);
+	// ft_putstr_fd(in, fd);
+	// ft_putendl("REDTESTed");
 
 	// We just need to get output, the ft_putendl_fd should be able
 	// to write to the file.
@@ -49,7 +82,7 @@ void redtest()
 	// args[0] = "ls";
 	// args[1] = NULL;
 	// close(1);
-	// open("tst.txt", 'w');
+	// open("tst.txt", O_WRONLY);
 	// pid = fork();
 	// if (pid == 0)
 	// {
